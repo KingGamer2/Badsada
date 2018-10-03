@@ -327,6 +327,7 @@ ${prefix}say - يقول البوت التقوله ويحذف رسالتك
 **
 !play - لتشغيل أغنية برآبط أو بأسم
 !skip - لتجآوز الأغنية الحآلية
+!come - علشان تثبت البوت بروم صوتي
 !pause - إيقآف الأغنية مؤقتا
 !resume - لموآصلة الإغنية بعد إيقآفهآ مؤقتا
 !vol - لتغيير درجة الصوت 100 - 0』
@@ -1540,7 +1541,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "{, R o y a l e }."
+          text: "{viper system}."
         }
       }}).then(msg => {msg.delete(3000)});
                           }
@@ -1636,6 +1637,20 @@ client.on("message", (message) => {
     }
 
 });
+
+
+
+ client.on('ready', function(){
+  require("./antispam.js")(client, function(message){
+     message.delete().then(yumz => {
+     message.channel.send(`stop spamming kid <@${message.author.id}>`).then(spammer => {
+     spammer.delete(2000)
+   });
+   });
+  });
+});
+
+
 
   client.on('message', message => {
      if(message.content.startsWith(prefix +"bans")) {
@@ -2196,7 +2211,7 @@ const Za7f = [
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL)
- .addField(', R o y a l e  ♧' ,
+ .addField('viper system ♧' ,
   `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[38ab] Send By: ' + message.author.username)
@@ -2257,7 +2272,7 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL)
- .addField(', R o y a l e ' ,
+ .addField('viper system ' ,
   `${Love[Math.floor(Math.random() * Love.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
@@ -2296,7 +2311,7 @@ client.on('message', message => { //bot
                                     .setAuthor(client.user.username,client.user.avatarURL)
                                     .setThumbnail(client.user.avatarURL)
                                     .setColor('RANDOM')
-                                    .setTitle('``, R o y a l e `` ')
+                                    .setTitle('``viper system `` ')
                                     .addField('``البنق🚀``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
                                     .addField('``استخدام الذاكرة ``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
                                     .addField('``السيرفرات🌐``', [client.guilds.size], true)
@@ -2367,7 +2382,7 @@ client.on('message', message => {
   .setThumbnail(message.author.avatarURL)  
   .setAuthor(message.author.username)
 .setDescription("معلومات عن الحــساب")
-               .setFooter(`{, R o y a l e }.`, '')
+               .setFooter(`{viper system }.`, '')
   .setColor("#9B59B6")
   .addField("اســـم الحســاب", `${message.author.username}`)
   .addField('كود الحساب الخاص', message.author.discriminator)
@@ -3033,6 +3048,18 @@ client.on('message', function(message) {
         });
     }
 });
+
+
+
+
+
+client.on('message', message => {
+ if(message.content.startsWith(prefix + "come")) {
+message.member.voiceChannel.join();
+}
+});
+
+
 
 
 
