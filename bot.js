@@ -10,29 +10,13 @@ const queue = new Map();
 const ytdl = require('ytdl-core');
 const fs = require('fs');
 const gif = require("gif-search");
-const prefix = "?";
+const prefix = "!";
 const adminprefix = "-"
 /////////////////////////
 ////////////////////////
 //////////////////////
 
-client.on('ready', function(){    
-    var ms = 150000 ;    // السرعة لا  تغيرها عشان ما تتبند 
-    var setGame = [`users : ${client.users.size}`,`servers : ${client.guilds.size}`,`${prefix}help | ${prefix}inv | ${prefix}support`];    // لا تلعب بشيء
-    var i = -1;    
-    var j = 0;    
-    setInterval(function (){    
-        if( i == -1 ){    
-j = 1;    
-       }    
-        if( i == (setGame.length)-1 ){    
-            j = -1;    
-      }    
-       i = i+j;    
-        client.user.setGame(setGame[i],`http://www.youtube.com/kinggamer_th3`);    
-}, ms);    
-    
-});
+
 
 client.on('ready', () => {
   console.log('╔[══════════════════════════════════]╗');
@@ -289,28 +273,8 @@ client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
     let pages = [`
 
-	
-	
-:page_with_curl: ملاحظة هامة :page_with_curl:
-**
-- سوي روم اسمه welcome عشان البوت يرحب بكل الاعضاء الجديد ،
-
-- سوي روم اسمه log عشان تشوف لوق السيرفر ،
--عند اضافة البوت الى سيرفرك ، سيتم تفعيل خاصيه الحماية في التهكير تلقائيا
-**
-
-   :robot: أوامر البوت :robot:
-**
-?invite - لدعوة البوت الى سيرفرك 
-?support - رابط سيرفر الدعم المادي للبوت 
-?bot - لرؤية معلومات البوت 
-?updates - لرؤية تحديثات البوت
-**
-
-	`,`
     :earth_africa: الأوامر العامة :earth_africa:
 **
-${prefix}invite - تسوي دعوة للبوت لسيرفرك
 ${prefix}server - معلومات عن سيرفرك 
 ${prefix}id - معلومات عنك 
 ${prefix}avatar - صورة بروفايلك الشخصي 
@@ -327,7 +291,7 @@ ${prefix}owner - لارسال رسالة لاونر سيرفر
 ${prefix}suggest - اقتراح شئ و لازم يكون فيه روم اسمه suggestions
 ${prefix}report - عشان تبلغ عن شخص
 ${prefix}short - لاختصار الروابط
-?channel - معلومات الروم 
+!channel - معلومات الروم 
 ${prefix}roles - يعرض لك كل رولات السيرفر
 **
   `
@@ -335,7 +299,7 @@ ${prefix}roles - يعرض لك كل رولات السيرفر
         :pray::skin-tone-1: أوامر الإدارة :pray::skin-tone-1:
 **
 ${prefix}ban - لحظر شخص من السيرفر
-?warn - warns لاعطاء تحذير لازم روم اسمها 
+!warn - warns لاعطاء تحذير لازم روم اسمها 
 ${prefix}unban - لفك الحظر من شخص
 ${prefix}tempban - لحظر شخص لكن بوقت محدد
 ${prefix}mute - حتى تعطي شخص ميوت
@@ -361,40 +325,40 @@ ${prefix}say - يقول البوت التقوله ويحذف رسالتك
    `,`
        :notes: الأوامر الموسيقية :notes:
 **
-?play - لتشغيل أغنية برآبط أو بأسم
-?skip - لتجآوز الأغنية الحآلية
-?pause - إيقآف الأغنية مؤقتا
-?resume - لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-?vol - لتغيير درجة الصوت 100 - 0』
-?stop - لإخرآج البوت من الروم
-?np - لمعرفة الأغنية المشغلة حآليا
-?queue - لمعرفة قآئمة التشغيل
+!play - لتشغيل أغنية برآبط أو بأسم
+!skip - لتجآوز الأغنية الحآلية
+!pause - إيقآف الأغنية مؤقتا
+!resume - لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+!vol - لتغيير درجة الصوت 100 - 0』
+!stop - لإخرآج البوت من الروم
+!np - لمعرفة الأغنية المشغلة حآليا
+!queue - لمعرفة قآئمة التشغيل
 **
    `,`
         :joystick: أوامر الألعاب :joystick:
 **       
-?rps - حجر ورقة مقص
-?اسرع كتابة- كتابة
-?لعبة الرياضيات - رياصيات
-?نكت - نكت 
-?لعبة فكك - فكك
-?عواصم عشوائي-عواصم
-?xo-لعبة اكس او 
-?لعبة ركب - ركب
-?slots - لعبة الإيموجي
-?فوائد ونصائح  - هل تعلم
-?يعطيك عقابات قاسية - عقاب 
-?roll <number> - لعمل قرعة 
-?لعبة لغز - لغز 
-?لعبة خواطر - خواطر
-?لعبة  حب - حب
+!rps - حجر ورقة مقص
+!اسرع كتابة- كتابة
+!لعبة الرياضيات - رياصيات
+!نكت - نكت 
+!لعبة فكك - فكك
+!عواصم عشوائي-عواصم
+!xo-لعبة اكس او 
+!لعبة ركب - ركب
+!slots - لعبة الإيموجي
+!فوائد ونصائح  - هل تعلم
+!يعطيك عقابات قاسية - عقاب 
+!roll <number> - لعمل قرعة 
+!لعبة لغز - لغز 
+!لعبة خواطر - خواطر
+!لعبة  حب - حب
 **
    `,`
         :balloon: أوامر الألوان :balloon:
 **
-?colors - لعرض قائمة الألوان
-?ccolors - لأنشاء 50 لون
-?setColor - لتحط ايا لون من هول الالوان اكتب الأمر و الرقم من 1 ل50 انت اختر
+!colors - لعرض قائمة الألوان
+!ccolors - لأنشاء 50 لون
+!setColor - لتحط ايا لون من هول الالوان اكتب الأمر و الرقم من 1 ل50 انت اختر
 **
 
 `]
@@ -448,20 +412,6 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-
-   client.on('message', message => {
-	   if(message.content.startsWith(`${prefix}inv`)){
-		   if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
-		   var embed = new Discord.RichEmbed()
-		   .setTitle(">> ClickHere To Add" + `${client.user.username}` + " <<")
-		   .setURL("https://discordapp.com/oauth2/authorize?client_id=" + `${client.user.id}` + "&scope=bot&permissions=8")
-		   .setTimestamp()
-		   .setFooter(`Requested By | ${message.author.username}`)
-		   .setColor("RANDOM")
-		   message.channel.send(":white_check_mark: | Check Your DM! تم الأرسال بلخاص")
-		   message.author.send({embed})
-	   }
-   });
 
 
 
@@ -843,22 +793,12 @@ setInterval(function(){})
 
 
 
-client.on('message', message => {
-            if (message.content.startsWith(prefix + "updates")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('     ** ?help ** ' ,' **تم اضافة كود الالوان  ** ')
-.addField('     ** ?warn ** ' ,' ** warns تم اضافة  التحذير لازم روم ** ')
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
-});
 
 
 
 
 client.on('message', msg => { 
-    if (msg.content.startsWith(`?warn`)) {
+    if (msg.content.startsWith(`!warn`)) {
       if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
@@ -1794,7 +1734,7 @@ hours = 12;
   }
 });
 
-const jackeo = ['400451035958738955'];
+const jackeo = ['490076609215201282'];
 client.on('message', message => { 
   if (message.author.bot) return; 
   if (!message.content.startsWith(prefix)) return;
@@ -3041,7 +2981,7 @@ client.on('message', message => {
 
 
 client.on('message', function(message) {
-	const myID = "417377495160193044";
+	const myID = "490076609215201282";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(adminprefix + "setname")) {
 		        if(message.author.id !== myID) return;
@@ -3223,7 +3163,7 @@ if (err) console.error(err);
 
   client.on('message',async message => {
     if(message.content.startsWith(adminprefix + "restart")) {
-        if(message.author.id !== "417377495160193044") return message.reply('You aren\'t the bot owner.');
+        if(message.author.id !== "490076609215201282") return message.reply('You aren\'t the bot owner.');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
                msg.edit('**Restarting..**');
